@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>食材の新規登録</title>
+</head>
+
+<body>
+    <h2>食材の新規登録</h2>
+    <form action="/food" method="POST">
+        <table>
+            <tr>
+                <th>項目</th>
+                <th>データ</th>
+            </tr>
+            <tr>
+                <td>食材名</td>
+                <td><input type="text" name="name" required></td>
+            </tr>
+            <tr>
+                <td>在庫数</td>
+                <td><input type="number" name="stock" required></td>
+            </tr>
+            <tr>
+                <td>値段</td>
+                <td><input type="number" name="price" required></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="登録">
+    </form>
+    <a href="/food">一覧に戻る</a>
+</body>
+
+</html>

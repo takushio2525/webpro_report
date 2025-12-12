@@ -1,0 +1,40 @@
+<!Doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        <%= data.name %>の編集
+    </title>
+</head>
+
+<body>
+    <h2>
+        <%= data.name %>の編集
+    </h2>
+    <form action="/food/update/<%= id %>" method="POST">
+        <table>
+            <tr>
+                <th>項目</th>
+                <th>データ</th>
+            </tr>
+            <tr>
+                <td>食材名</td>
+                <td><input type="text" name="name" value="<%= data.name %>" required></td>
+            </tr>
+            <tr>
+                <td>在庫数</td>
+                <td><input type="number" name="stock" value="<%= data.stock %>" required></td>
+            </tr>
+            <tr>
+                <td>値段</td>
+                <td><input type="number" name="price" value="<%= data.price %>" required></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="更新">
+    </form>
+    <a href="/food">一覧に戻る</a>
+</body>
+
+</html>
