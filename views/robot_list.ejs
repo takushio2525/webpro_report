@@ -1,0 +1,60 @@
+<!Doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>ロボ部品リスト</title>
+    <link rel="stylesheet" href="/public/robot_style.css">
+</head>
+
+<body>
+    <h2>ロボ部品リスト</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>部品名</th>
+            <th>型番</th>
+            <th>個数</th>
+            <th>単価(税込)</th>
+            <th>合計(税込)</th>
+            <th>購入先</th>
+            <th>データシート</th>
+        </tr>
+        <% let number=0 %>
+            <% for( let row of data ) { %>
+                <tr>
+                    <td>
+                        <%= row.id %>
+                    </td>
+                    <td><a href="/robot/<%= number %>">
+                            <%= row.part_name %>
+                        </a></td>
+                    <td>
+                        <%= row.part_number %>
+                    </td>
+                    <td>
+                        <%= row.quantity %>
+                    </td>
+                    <td>
+                        <%= row.price %>円
+                    </td>
+                    <td>
+                        <%= row.quantity * row.price %>円
+                    </td>
+                    <td>
+                        <% if (row.sale_site) { %><a href="<%= row.sale_site %>" target="_blank">リンク</a>
+                            <% } else { %>-<% } %>
+                    </td>
+                    <td>
+                        <% if (row.datasheet) { %><a href="<%= row.datasheet %>" target="_blank">リンク</a>
+                            <% } else { %>-<% } %>
+                    </td>
+                </tr>
+                <% number +=1 %>
+                    <% } %>
+    </table>
+    <br>
+    <a href="/robot/create">新規登録</a>
+</body>
+
+</html>

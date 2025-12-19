@@ -1,0 +1,70 @@
+<!Doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        <%= data.title %>
+    </title>
+    <link rel="stylesheet" href="/public/karaoke_style.css">
+</head>
+
+<body>
+    <h2>
+        <%= data.title %>の詳細
+    </h2>
+    <table>
+        <tr>
+            <th>項目</th>
+            <th>データ</th>
+        </tr>
+        <tr>
+            <td>ID</td>
+            <td>
+                <%= data.id %>
+            </td>
+        </tr>
+        <tr>
+            <td>曲名</td>
+            <td>
+                <%= data.title %>
+            </td>
+        </tr>
+        <tr>
+            <td>アーティスト</td>
+            <td>
+                <%= data.artist %>
+            </td>
+        </tr>
+        <tr>
+            <td>ジャンル</td>
+            <td>
+                <%= data.genre %>
+            </td>
+        </tr>
+        <tr>
+            <td>キー</td>
+            <td>
+                <%= data.key> 0 ? '+' + data.key : data.key %>
+            </td>
+        </tr>
+        <tr>
+            <td>メモ</td>
+            <td>
+                <%= data.memo %>
+            </td>
+        </tr>
+        <tr>
+            <td>最高得点</td>
+            <td>
+                <%= data.max_score %>点
+            </td>
+        </tr>
+    </table>
+    <br>
+    <a href="/karaoke/edit/<%= id %>">編集</a>
+    <a href="/karaoke/delete/<%= id %>" onclick="return confirm('本当に削除しますか？')">削除</a>
+    <a href="/karaoke">一覧に戻る</a>
+</body>
+
+</html>

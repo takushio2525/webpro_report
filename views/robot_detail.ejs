@@ -1,0 +1,94 @@
+<!Doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        <%= data.part_name %>
+    </title>
+    <link rel="stylesheet" href="/public/robot_style.css">
+</head>
+
+<body>
+    <h2>
+        <%= data.part_name %>の詳細
+    </h2>
+    <table>
+        <tr>
+            <th>項目</th>
+            <th>データ</th>
+        </tr>
+        <tr>
+            <td>ID</td>
+            <td>
+                <%= data.id %>
+            </td>
+        </tr>
+        <tr>
+            <td>部品名</td>
+            <td>
+                <%= data.part_name %>
+            </td>
+        </tr>
+        <tr>
+            <td>型番</td>
+            <td>
+                <%= data.part_number %>
+            </td>
+        </tr>
+        <tr>
+            <td>注文番号</td>
+            <td>
+                <%= data.order_number %>
+            </td>
+        </tr>
+        <tr>
+            <td>個数</td>
+            <td>
+                <%= data.quantity %>
+            </td>
+        </tr>
+        <tr>
+            <td>単価</td>
+            <td>
+                <%= data.price %>円
+            </td>
+        </tr>
+        <tr>
+            <td>合計金額</td>
+            <td>
+                <%= data.quantity * data.price %>円
+            </td>
+        </tr>
+        <tr>
+            <td>販売サイト</td>
+            <td>
+                <% if (data.sale_site) { %><a href="<%= data.sale_site %>" target="_blank">
+                        <%= data.sale_site %>
+                    </a>
+                    <% } else { %>-<% } %>
+            </td>
+        </tr>
+        <tr>
+            <td>データシート</td>
+            <td>
+                <% if (data.datasheet) { %><a href="<%= data.datasheet %>" target="_blank">
+                        <%= data.datasheet %>
+                    </a>
+                    <% } else { %>-<% } %>
+            </td>
+        </tr>
+        <tr>
+            <td>メモ</td>
+            <td>
+                <%= data.memo %>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <a href="/robot/edit/<%= id %>">編集</a>
+    <a href="/robot/delete/<%= id %>" onclick="return confirm('本当に削除しますか？')">削除</a>
+    <a href="/robot">一覧に戻る</a>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>曲の新規登録</title>
+    <link rel="stylesheet" href="/public/karaoke_style.css">
+</head>
+
+<body>
+    <h2>曲の新規登録</h2>
+    <form action="/karaoke" method="POST">
+        <table>
+            <tr>
+                <th>項目</th>
+                <th>データ</th>
+            </tr>
+            <tr>
+                <td>曲名</td>
+                <td><input type="text" name="title" required></td>
+            </tr>
+            <tr>
+                <td>アーティスト</td>
+                <td><input type="text" name="artist" required></td>
+            </tr>
+            <tr>
+                <td>ジャンル</td>
+                <td>
+                    <select name="genre">
+                        <option value="J-POP">J-POP</option>
+                        <option value="アニソン">アニソン</option>
+                        <option value="洋楽">洋楽</option>
+                        <option value="演歌">演歌</option>
+                        <option value="ボカロ">ボカロ</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>キー</td>
+                <td><input type="number" name="key" value="0" min="-7" max="7" required></td>
+            </tr>
+            <tr>
+                <td>メモ</td>
+                <td><input type="text" name="memo"></td>
+            </tr>
+            <tr>
+                <td>最高得点</td>
+                <td><input type="number" name="max_score" value="0" min="0" max="100" step="0.001"></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="登録">
+    </form>
+    <a href="/karaoke">一覧に戻る</a>
+</body>
+
+</html>
