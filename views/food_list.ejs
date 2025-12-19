@@ -13,18 +13,30 @@
             <th>ID</th>
             <th>食材名</th>
             <th>在庫数</th>
-            <th>値段</th>
+            <th>単価</th>
+            <th>合計金額</th>
         </tr>
         <% let number=0 %>
-        <% for( let row of data ) { %>
-            <tr>
-                <td><%= row.id %></td>
-                <td><a href="/food/<%= number %>"><%= row.name %></a></td>
-                <td><%= row.stock %></td>
-                <td><%= row.price %>円</td>
-            </tr>
-            <% number +=1 %>
-        <% } %>
+            <% for( let row of data ) { %>
+                <tr>
+                    <td>
+                        <%= row.id %>
+                    </td>
+                    <td><a href="/food/<%= number %>">
+                            <%= row.name %>
+                        </a></td>
+                    <td>
+                        <%= row.stock %>
+                    </td>
+                    <td>
+                        <%= row.price %>円
+                    </td>
+                    <td>
+                        <%= row.stock * row.price %>円
+                    </td>
+                </tr>
+                <% number +=1 %>
+                    <% } %>
     </table>
     <br>
     <a href="/food/create">新規登録</a>

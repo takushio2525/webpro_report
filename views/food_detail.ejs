@@ -36,15 +36,21 @@
             </td>
         </tr>
         <tr>
-            <td>値段</td>
+            <td>単価</td>
             <td>
                 <%= data.price %>円
+            </td>
+        </tr>
+        <tr>
+            <td>合計金額</td>
+            <td>
+                <%= data.stock * data.price %>円
             </td>
         </tr>
     </table>
     <br>
     <a href="/food/edit/<%= id %>">編集</a>
-    <a href="/food/delete/<%= id %>">削除</a>
+    <a href="/food/delete/<%= id %>" onclick="return confirm('本当に削除しますか？')">削除</a>
     <a href="/food">一覧に戻る</a>
 </body>
 
